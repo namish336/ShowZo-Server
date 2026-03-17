@@ -3,7 +3,7 @@ import { createShowtime, getAllShowtimes, deleteShowtime } from "../controllers/
 
 const router = express.Router();
 
-router.post("/add", createShowtime);
+router.post("/", createShowtime);
 router.get("/", getAllShowtimes);
 router.delete("/:id", deleteShowtime);
 

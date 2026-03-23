@@ -138,3 +138,30 @@ export const deleteShowtime = async (req, res) => {
         });
     }
 };
+
+// Bulk delete showtimes
+export const bulkDeleteShowtimes = async (req, res) => {
+    try {
+        const { ids } = req.body;
+
+        if (!ids || !Array.isArray(ids) || ids.length === 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Please provide an array of IDs to delete"
+            });
+        }
+
+        const result = await Showtime.deleteMany({ _id: { $in: ids } });
+
+        res.status(200).json({
+            success: true,
+            message: `${result.deletedCount} showtimes deleted successfully`
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};

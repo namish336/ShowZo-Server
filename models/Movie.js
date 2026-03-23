@@ -35,6 +35,7 @@ const movieSchema = new mongoose.Schema(
     boxOffice: { type: String }, // New
     isNowShowing: { type: Boolean, default: false },
     showOnHome: { type: Boolean, default: false },
+    isHero: { type: Boolean, default: false },
     showTimes: { type: [String], default: [] },
   },
   { timestamps: true, _id: false } // We want to allow setting _id manually if needed, or we can remove _id: false if we want mongo to generate it. However, the schema definition had _id explicitly defined.

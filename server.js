@@ -16,6 +16,7 @@ import favoriteRoutes from "./routes/favorite.routes.js";
 import collectionRoutes from "./routes/collection.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
 import dashboardRoutes from "./routes/dashboard.routes.js";
+import newsRoutes from "./routes/news.routes.js";
 
 
 const app = express();
@@ -41,6 +42,7 @@ app.use("/api/favorites", favoriteRoutes);
 app.use("/api/collections", collectionRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/news", newsRoutes);
 
 
 

@@ -27,7 +27,7 @@ export const getMovieById = async (req, res) => {
 
 export const getAllMovies = async (req, res) => {
   try {
-    const { nowShowing, home } = req.query;
+    const { nowShowing, home, isHero } = req.query;
     let query = {};
 
     if (nowShowing === 'true') {
@@ -35,6 +35,9 @@ export const getAllMovies = async (req, res) => {
     }
     if (home === 'true') {
       query.showOnHome = true;
+    }
+    if (isHero === 'true') {
+      query.isHero = true;
     }
 
     const movies = await Movie.find(query);
